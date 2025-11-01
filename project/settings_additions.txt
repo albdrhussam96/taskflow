@@ -1,0 +1,34 @@
+# Add to INSTALLED_APPS:
+INSTALLED_APPS += [
+    'rest_framework',
+    'django_filters',
+    'tasks',
+]
+
+# REST framework defaults (example):
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ],
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+}
+
+# Media settings
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+# Use environment variables for DB (example for Postgres):
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': env('DB_NAME'),
+#         'USER': env('DB_USER'),
+#         'PASSWORD': env('DB_PASS'),
+#         'HOST': env('DB_HOST', 'localhost'),
+#         'PORT': env('DB_PORT', ''),
+#     }
+# }
