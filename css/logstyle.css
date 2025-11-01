@@ -1,0 +1,72 @@
+/*index.html style*/
+/*start activities*/
+body{
+	    background: linear-gradient(#970404,rgba(0, 0, 0, 0.7) );
+}
+.activities{
+	padding: 50px 0px;
+}
+
+.activities h2{
+	color:  #08526d;
+	margin-bottom: 25px;
+	display: inline-block;
+	border-bottom: solid 3px orange;
+}
+
+.activities i{
+	color: #fff;
+	background-color: orange;
+	padding: 20px;
+	margin-bottom: 10px;
+	font-size: 30px;
+}
+
+.activities h3{
+	color: navy;
+	font-size: 24px;
+}
+.activities p{
+	color: #222;
+	font-size: 18px;
+	margin-bottom: 40px;
+}
+
+/*end activities*/
+
+/*teacher.php style*/
+.main-card table td .card-img{
+	max-width: 50px;
+	max-height: 50px;
+}
+
+
+/*courses.php style*/
+
+.main-cont .courseList .list-group-item:hover{
+	background-color: #ffc107;
+	color: white;
+	font-weight: bold;
+}
+
+.main-cont .session-card{
+	display: none;
+}
+
+.jumbotron {
+    background :linear-gradient(#970404,rgba(0, 0, 0, 0.7) );
+}
+
+/* .btnlog{
+    background-color:#222;
+}
+.btnlog:hover{
+    background-color:#970404;
+} */
+a{
+	padding: 50px;
+	margin: 20px;
+}
+h3{
+	text-align: center;
+}
