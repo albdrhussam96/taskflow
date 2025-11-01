@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/dashstyle.css">
+    <link rel="stylesheet" href="css/logstyle.css">
+    <link rel="stylesheet" href="css/mystyle.css">
+    <link rel="stylesheet" href="css/regstyle.css">
+    <title>Infinity Syntax</title>
+</head>
+<body>
+    <div class="container py-5">
+    <h2 class="text-center mb-5 texth">إدارة الفريق والمهام</h2>
+
+    <!-- أعضاء الفريق -->
+    <div class="row mb-5">
+        <div class="col-12">
+            <div class="card shadow-lg neumorph">
+                <div class="card-header  text-white">
+                    <h5 style="text-align: center;">أعضاء الفريق</h5>
+                </div>
+                <div class="card-body">
+                    <button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#addMember">إضافة عضو</button>
+                    <div class="row">
+                        <!-- @foreach($users as $user) -->
+                        <div class="col-md-4 mb-3">
+                            <div class="card h-100 shadow-sm">
+                                <img src="{{ asset('storage/photos/' . $user->photo) }}" class="card-img-top" alt="{{ $user->name }}">
+                                <div class="card-body">
+                                    <h6>{{ $user->name }} @if($user->is_leader)<span class="badge bg-warning">قائد</span>@endif</h6>
+                                    <p class="text-muted">{{ $user->tasks->count() }} مهام</p>
+                                    <a href="#" class="btn btn-sm btn-outline-primary">تعديل</a>
+                                    <a href="#" class="btn btn-sm btn-outline-danger">حذف</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- @endforeach -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- المهام -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card shadow-lg neumorph">
+                <div class="card-header bg-purple text-white">
+                    <h5 style="text-align: center;">المهام</h5>
+                </div>
+                <div class="card-body">
+                    <button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#addTask">إضافة مهمة</button>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>المهمة</th>
+                                    <th>الحالة</th>
+                                    <th>الموعد النهائي</th>
+                                    <th>الأعضاء</th>
+                                    <th>الإجراء</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- @foreach($tasks as $task) -->
+                                <tr>
+                                    <td>{{ $task->title }}</td>
+                                    <td>
+                                        <span class="badge bg-{{ $task->status == 'completed' ? 'success' : 'warning' }}">
+                                            {{ $task->status == 'completed' ? 'مكتملة' : 'قيد التنفيذ' }}
+                                        </span>
+                                    </td>
+                                    <td>{{ $task->deadline }}</td>
+                                    <td>{{ $task->users->pluck('name')->implode(', ') }}</td>
+                                    <td>
+                                        <a href="#" class="btn btn-sm btn-primary">تعديل</a>
+                                        <a href="#" class="btn btn-sm btn-danger">حذف</a>
+                                    </td>
+                                </tr>
+                                <!-- @endforeach -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+   <!--START FOOTER SECTION-->
+    <footer>
+        <div class="footer-row">
+            <div class="footer-col">
+                <h3 class="footer-title">CONTACT US</h3>
+                <p class="footer-text">Main Avenue</p>
+                <p class="footer-text">234 Building Rose</p>
+                <p class="footer-text">M1 234 Manchester</p>
+                <p class="footer-text">infinitysyntax@gmail.com</p>
+            </div>
+            <!-- <div class="footer-col">
+                <h3 class="footer-title">OPENING HOUR</h3>
+                <p class="footer-text">Monday - Thursday</p>
+                <p class="footer-text">9:00 am - 11:00 pm </p>
+                <p class="footer-text">Friday - Sunday</p>
+                <p class="footer-text">11:00 am - 10:00 pm</p>
+            </div> -->
+            <div class="footer-col">
+                <h3 class="footer-title">FOLLOW US</h3>
+                <a class="footer-text">Facebook</a><br>
+                <a class="footer-text">Instagram</a><br>
+                <a class="footer-text">Twitter</a><br>
+                <a class="footer-text">Pinterest</a><br>
+            </div>
+
+            <div class="footer-col">
+                <h3 class="footer-title">NEWSLETTER</h3>
+                <input placeholder="ENTER YOUR EMAIL..." type="email" class="footer-email"/>
+                <br />
+                <a href="#" class="footer-subscribe">SUBSCRIBE</a>
+            </div>
+        </div>
+
+        <div class="copyright">
+            Copyright &copy; 2025 <span class="copyright-name">Infinity Syntax</span> All rights Reserved.
+        </div>
+    </footer>
+    <!--END FOOTER SECTION-->
+</body>
+</html>
